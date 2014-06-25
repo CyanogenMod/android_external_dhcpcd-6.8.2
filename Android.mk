@@ -88,3 +88,13 @@ include $(BUILD_EXECUTABLE)
 # LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/dhcpcd-6.8.2
 # LOCAL_SRC_FILES := android.conf
 # include $(BUILD_PREBUILT)
+
+# Shared library
+#======================================================#
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := ifaddrs.c
+LOCAL_SHARED_LIBRARIES := libnetutils
+LOCAL_MODULE:= libdhcpcd
+LOCAL_PRELINK_MODULE := false
+include $(BUILD_SHARED_LIBRARY)
+#======================================================#
